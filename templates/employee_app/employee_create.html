@@ -1,0 +1,21 @@
+{% extends 'employee_app/base.html' %}
+
+{%  block title %} Employee create {% endblock %}
+
+{% block body %}
+    {% if form %}
+    <form method="POST">
+    {%  csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+
+
+    <input type="submit" value="Create" class="btn btn-success" style="margin-left: 100px;">
+    <a href="{% url 'employee_list' %}" class="btn btn-success">Cancel</a>
+    </form>
+        {% else %}
+        <h1>Form object not created</h1>
+        {% endif %}
+    <a href="{% url 'employee_list' %}"> goto home</a>
+{% endblock %}
